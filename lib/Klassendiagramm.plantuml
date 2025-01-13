@@ -1,0 +1,59 @@
+
+@startuml Klassendiagramm
+
+abstract class Buch {
+    - titel: String
+    - autor: String
+    - verfuegbar: boolean
+    --
+    + getTitel(): String
+    + getAutor(): String
+    + isVerfuegbar(): boolean
+    + setVerfuegbar(verfuegbar: boolean): void
+    + getKategorie(): String
+    + getSuchbegriff(): String
+}
+
+class Sachbuch {
+    + getKategorie(): String
+}
+
+class Roman {
+    + getKategorie(): String
+}
+
+abstract class Benutzer {
+    - name: String
+    - maxAusleihen: int
+    - aktuelleAusleihen: int
+    --
+    + getName(): String
+    + kannAusleihen(): boolean
+    + ausleiheErhoehen(): void
+    + ausleiheVerringern(): void
+    + getBenutzerTyp(): String
+    + getSuchbegriff(): String
+}
+
+class Studierende {
+    + getBenutzerTyp(): String
+}
+
+class Dozenten {
+    + getBenutzerTyp(): String
+}
+
+interface Suchbar {
+    + getSuchbegriff(): String
+}
+
+Suchbar <|.. Buch
+Suchbar <|.. Benutzer
+
+Buch <|-- Sachbuch
+Buch <|-- Roman
+
+Benutzer <|-- Studierende
+Benutzer <|-- Dozenten
+
+@enduml

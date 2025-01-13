@@ -1,0 +1,12 @@
+@startuml Aktivitätsdiagramm
+start
+:Benutzer wählt ein Buch aus;
+if (Buch verfügbar?) then (ja)
+    :Ausleihe wird durchgeführt;
+    :Buch wird als nicht verfügbar markiert;
+else (nein)
+    :Fehlermeldung: Buch nicht verfügbar;
+endif
+:Bestätigung der Ausleihe;
+stop
+@enduml

@@ -1,0 +1,12 @@
+@startuml Sequenzdiagramm
+actor Benutzer
+participant Bibliothek
+participant Buch
+participant AusleihService
+
+Benutzer -> Bibliothek: getVerfuegbareBuecher()
+Bibliothek -> Buch: isVerfuegbar()
+Benutzer -> AusleihService: buchAusleihen(buch, benutzer)
+AusleihService -> Buch: setVerfuegbar(false)
+AusleihService -> Benutzer: Bestätigung der Ausleihe
+@enduml
